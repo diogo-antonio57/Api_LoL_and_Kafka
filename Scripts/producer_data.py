@@ -12,7 +12,7 @@ with open('/home/diogo/Documentos/Projetos Python/Api_LoL_and_Kafka/data/auth.tx
 
 # Get the usernames from .txt
 username_id_list = []
-txt = open('/home/diogo/Documentos/Projetos Python/Api_LoL_and_Kafka/data/username_ID.txt', 'r')
+txt = open('/home/diogo/Documentos/Projetos Python/Api_LoL_and_Kafka/data/userID.txt', 'r')
 
 for line in txt:
     username = line.replace('\n','')
@@ -23,7 +23,7 @@ producer = KafkaProducer(bootstrap_servers='localhost:9092')
 TOPIC = 'League_of_Legends'
 
 # for Id in range(len(username_id_list)):
-for n in range(2):
+for n in range(15):
 
     # print(random.choice(username_id_list))
     user_id = random.choice(username_id_list)
@@ -52,7 +52,10 @@ for n in range(2):
     maestria3 = list_mastery[2][1]
 
     # Create the message
-    message = f'{user_id},{name},{level},{campeao1},{maestria1},{campeao2},{maestria2},{campeao3},{maestria3}'
+    # message = '{' + f"user_id: '{user_id}', name: '{name}', level: {level}, campeao1: '{campeao1}', maestria1: {maestria1}, "\
+    #                 f"campeao2: '{campeao2}', maestria2: {maestria2}, campeao3: '{campeao3}', maestria: {maestria3}" + '}'
+
+    message = f"{user_id},{name},{level},{campeao1},{maestria1},{campeao2},{maestria2},{campeao3},{maestria3}" 
     print(message)
     message = bytearray(message.encode("utf-8"))
 
