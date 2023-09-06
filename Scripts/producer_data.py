@@ -52,10 +52,10 @@ for n in range(15):
     maestria3 = list_mastery[2][1]
 
     # Create the message
-    # message = '{' + f"user_id: '{user_id}', name: '{name}', level: {level}, campeao1: '{campeao1}', maestria1: {maestria1}, "\
-    #                 f"campeao2: '{campeao2}', maestria2: {maestria2}, campeao3: '{campeao3}', maestria: {maestria3}" + '}'
+    message = '{' + f"'user_id':'{user_id}','name':'{name}','level':{level},'campeao1':'{campeao1}',"\
+                    f"'maestria1':{maestria1},'campeao2':'{campeao2}','maestria2':{maestria2},"\
+                    f"'campeao3':'{campeao3}','maestria':{maestria3}" + '},'
 
-    message = f"{user_id},{name},{level},{campeao1},{maestria1},{campeao2},{maestria2},{campeao3},{maestria3}" 
     print(message)
     message = bytearray(message.encode("utf-8"))
 
