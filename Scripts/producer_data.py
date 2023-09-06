@@ -3,12 +3,14 @@ import random
 from time import sleep, time, ctime
 from kafka import KafkaProducer
 import requests
+import dotenv
+import os
 
 list_mastery = []
 
-# Read api key and url for get the usernames
-with open('/home/diogo/Documentos/Projetos Python/Api_LoL_and_Kafka/data/auth.txt', 'r') as auth_txt:
-    auth = auth_txt.readline()
+# Encontra o arquivo .env e direcionamento das variáveis
+dotenv.load_dotenv(dotenv.find_dotenv())
+auth = os.getenv('auth')
 
 # Get the usernames from .txt
 username_id_list = []
